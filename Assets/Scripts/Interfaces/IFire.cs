@@ -1,10 +1,6 @@
-
-
-
-
 namespace Asteroids
 {
-    interface IFire 
+    interface IFire
     {
         void Fire(bool isFire);
     }

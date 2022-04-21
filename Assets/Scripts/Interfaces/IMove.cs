@@ -1,4 +1,3 @@
-
 using UnityEngine;
 
 namespace Asteroids
@@ -7,6 +6,6 @@ namespace Asteroids
     {
         float Speed { get; }
 
-        void Move(float horizontal, float vertical, float deltaTime,Rigidbody2D barrelRB);
+        void Move(float horizontal, float vertical, float deltaTime, Rigidbody2D barrelRB);
     }
 }
