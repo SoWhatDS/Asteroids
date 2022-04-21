@@ -1,0 +1,9 @@
+
+
+namespace Asteroids
+{
+    interface IController 
+    {
+        
+    }
+}
