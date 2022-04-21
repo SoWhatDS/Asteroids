@@ -1,6 +1,5 @@
 using UnityEngine;
 
-
 namespace Asteroids
 {
     internal sealed class FireShip : IFire

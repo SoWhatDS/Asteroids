@@ -53,10 +53,13 @@
     <UnityVersion>2020.3.25f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Interfaces\IViewServices.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IMove.cs" />
     <Compile Include="Assets\Scripts\Model\PlayerModel.cs" />
     <Compile Include="Assets\Scripts\Components\InputConstants.cs" />
     <Compile Include="Assets\Scripts\Controller\PlayerCreation.cs" />
+    <Compile Include="Assets\Scripts\Controller\EnemyController.cs" />
+    <Compile Include="Assets\Scripts\Components\ObjectPool\ViewServices.cs" />
     <Compile Include="Assets\Scripts\Controller\GameInitialization.cs" />
     <Compile Include="Assets\Scripts\Model\BulletModel.cs" />
     <Compile Include="Assets\Scripts\ScriptableObject\PlayerData.cs" />
@@ -70,9 +73,11 @@
     <Compile Include="Assets\Scripts\Model\EnemyModel.cs" />
     <Compile Include="Assets\Scripts\ScriptableObject\GameData.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IEnemyFactory.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\IEnemyMove.cs" />
     <Compile Include="Assets\Scripts\Components\MoveRigidbody.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IFire.cs" />
     <Compile Include="Assets\Scripts\Model\BulletCreation.cs" />
+    <Compile Include="Assets\Scripts\Components\ObjectPool\ObjectPool.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ITakeDamage.cs" />
     <Compile Include="Assets\Scripts\Components\Ship.cs" />
     <Compile Include="Assets\Scripts\Components\FireShip.cs" />
@@ -91,11 +96,11 @@
     <Compile Include="Assets\Scripts\Interfaces\IRotation.cs" />
     <Compile Include="Assets\Scripts\Components\EnemyFactory\Asteroid.cs" />
     <Compile Include="Assets\Scripts\Model\EnemyInitialization.cs" />
-    <Compile Include="Assets\Scripts\Controller\EnemyController.cs" />
-    <Compile Include="Assets\Scripts\Interfaces\IEnemyMove.cs" />
-    <Compile Include="Assets\Scripts\Components\ObjectPool\ObjectPool.cs" />
-    <Compile Include="Assets\Scripts\Interfaces\IViewServices.cs" />
-    <Compile Include="Assets\Scripts\Components\ObjectPool\ViewServices.cs" />
+    <Compile Include="Assets\Scripts\Components\BuilderBullet\GameObjectBuilder.cs" />
+    <Compile Include="Assets\Scripts\Components\BuilderBullet\GameObjectVisualBuilder.cs" />
+    <Compile Include="Assets\Scripts\Components\BuilderBullet\GameObjectPhysicalBuilder.cs" />
+    <Compile Include="Assets\Scripts\Components\Prototype\ObjectExtension.cs" />
+    <Compile Include="Assets\Scripts\Components\Prototype\Prototype.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\DKP_PixelArt\PixelArtStarshipPackage_TerranFleet\PixelArtStarshipPackage_TerranFleet_Info.txt" />

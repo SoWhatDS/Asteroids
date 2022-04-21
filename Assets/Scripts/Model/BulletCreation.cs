@@ -1,24 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Asteroids
 {
-    internal sealed class BulletCreation : ICreateGameObject
+    internal sealed class BulletCreation 
     {
         private readonly BulletModel _bulletModel;
-
+        GameObjectBuilder gameObjectBuilder = new GameObjectBuilder();
         internal BulletCreation(BulletModel bulletModel)
         {
             _bulletModel = bulletModel;
         }
 
-        public Transform CreateGameObject()
+        public GameObject CreateGameObject()
         {
-            GameObject temp = new GameObject("Bullet");
-            temp.AddComponent<SpriteRenderer>().sprite = _bulletModel.Sprite;
-            temp.AddComponent<Rigidbody2D>();
-            return temp.transform;
+            var bullet = gameObjectBuilder
+                .Physics
+                .Rigidbody2D(10)
+                .BoxCollider2D()
+                .Transform()
+                .Visual
+                .Sprite(_bulletModel.Sprite)
+                .Name("Bullet");
+            return bullet;
         }
     }
 }
