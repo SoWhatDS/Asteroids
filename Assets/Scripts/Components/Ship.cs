@@ -2,14 +2,13 @@ using UnityEngine;
 
 namespace Asteroids
 {
-    internal sealed class Ship : IMove,IRotation,IFire,ITakeDamage
+    internal sealed class Ship : Player,IMove,IRotation,IFire,ITakeDamage
     {
         private IMove _moveImplimintation;
         private IRotation _rotationImplimintation;
         private IFire _fireImplimintation;
         private ITakeDamage _takeDamageImplimintation;
-
-        public float Speed => _moveImplimintation.Speed;       
+        
 
         public Ship(IMove moveImplimitation, IRotation rotationImplimintetion, IFire fireImplimintation, ITakeDamage takeDamageImplimintation)
         {

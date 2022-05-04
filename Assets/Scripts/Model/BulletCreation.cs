@@ -6,6 +6,7 @@ namespace Asteroids
     {
         private readonly BulletModel _bulletModel;
         GameObjectBuilder gameObjectBuilder = new GameObjectBuilder();
+
         internal BulletCreation(BulletModel bulletModel)
         {
             _bulletModel = bulletModel;

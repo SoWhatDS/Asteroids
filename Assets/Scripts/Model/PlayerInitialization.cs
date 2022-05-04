@@ -5,27 +5,23 @@ namespace Asteroids
     internal sealed class PlayerInitialization : IInitialization,IController
     {
         private readonly PlayerCreation _playerCreation;
-        private readonly Transform _player;
-        private readonly Rigidbody2D _playerRB;
+        private readonly Player _player;      
         
         public PlayerInitialization(PlayerCreation playerCreation)
         {
             _playerCreation = playerCreation;
-            _player = _playerCreation.CreateGameObject();
-            _player.position = Vector3.zero;
-            _playerRB = _player.gameObject.GetComponent<Rigidbody2D>();
-            _playerRB.gravityScale = 0f;
-            _player = _player.gameObject.GetComponent<Transform>();
+            _player = _playerCreation.CreatePlayer();
+            _player.transform.position = Vector2.zero;           
         }
 
         public Transform GetPlayerTransform()
         {
-            return _player;
+            return _player.transform;
         }
 
         public Rigidbody2D GetPlayerRigidbody2D()
         {
-            return _playerRB;
+            return _player.GetComponent<Rigidbody2D>();
         }
     }
 }

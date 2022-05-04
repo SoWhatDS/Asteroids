@@ -1,8 +1,9 @@
+using UnityEngine;
 
 namespace Asteroids
 {
-    public  class Asteroid : Enemy
+    public sealed class Asteroid : Enemy
     {
-        
+       
     }
 }

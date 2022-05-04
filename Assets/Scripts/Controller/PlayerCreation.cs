@@ -1,9 +1,8 @@
-
 using UnityEngine;
 
 namespace Asteroids
 {
-    public class PlayerCreation : ICreateGameObject
+    public class PlayerCreation : IPlayerFactory
     {
         private readonly PlayerModel _playerModel;
 
@@ -12,13 +11,18 @@ namespace Asteroids
             _playerModel = playerModel;
         }
 
-        public Transform CreateGameObject()
+        public Player CreatePlayer()
         {
-            GameObject temp = new GameObject("Player");
-            temp.AddComponent<SpriteRenderer>().sprite = _playerModel.Sprite;
-            temp.AddComponent<Rigidbody2D>();
-            temp.AddComponent<BoxCollider2D>();
-            return temp.transform;
+            Player player = GameObject.Instantiate(Resources.Load<Player>("Player/Player"));
+            player.Health = _playerModel.Health;
+            player.Speed = _playerModel.Speed;
+            player.gameObject.GetComponent<SpriteRenderer>().sprite = _playerModel.Sprite;
+            player.gameObject.AddComponent<Rigidbody2D>().gravityScale = 0.0f;
+            player.gameObject.AddComponent<BoxCollider2D>();          
+            return player;
         }
+
+       
+
     }
 }

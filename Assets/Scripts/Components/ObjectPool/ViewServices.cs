@@ -12,7 +12,7 @@ namespace Asteroids
         {
             if (!_viewCache.TryGetValue(prefab.name, out ObjectPool viewPool))
             {
-                viewPool = new ObjectPool(prefab);
+                viewPool = new ObjectPool(prefab);                
                 _viewCache[prefab.name] = viewPool;
             }
 

@@ -9,12 +9,14 @@ namespace Asteroids
         public float Health;
 
         public float Speed;
+
+       
       
         public PlayerModel(Sprite sprite, float health, float speed)
         {
             Sprite = sprite;
             Health = health;
-            Speed = speed;
+            Speed = speed;         
             
         }     
     }

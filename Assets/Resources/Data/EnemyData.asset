@@ -15,4 +15,5 @@ MonoBehaviour:
   _spriteEnemy: {fileID: -492111648660132467, guid: f32d96da99383db498b3d92d10c5259e, type: 3}
   _healthEnemy: 100
   _speedEnemy: 10
-  _damage: 30
+  _damage: 5
+  _position: {x: 0, y: 0}

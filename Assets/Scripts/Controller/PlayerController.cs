@@ -1,4 +1,3 @@
-
 using UnityEngine;
 
 
@@ -18,27 +17,28 @@ namespace Asteroids
         private readonly float _force;
         private readonly Ship _ship;
         private Camera _mainCamera = Camera.main;
-        private readonly IViewServices viewServices;
-
+       
+        
         public PlayerController(PlayerModel playerModel, Rigidbody2D playerRB,BulletModel bulletModel,Transform playerTransform)
-        {
-            _playerRB = playerRB;
+        {           
             _bulletRB = bulletModel.BulletRB;            
             _force = bulletModel.Force;
-            _playerTransform = playerTransform;
-            MoveRigidbody moveRigidbody = new MoveRigidbody(playerModel.Speed,_playerRB);
-            RotationShip rotationRigidbody = new RotationShip(_playerTransform);
-            FireShip fireShip = new FireShip(_bulletRB,_playerTransform,_force,viewServices);
-            TakeDamageShip takeDamageShip = new TakeDamageShip(playerModel.Health);
-            _ship = new Ship(moveRigidbody, rotationRigidbody,fireShip,takeDamageShip);            
+            _playerRB = playerRB;
+            _playerTransform = playerTransform;           
+            MoveRigidbody moveRigidbody = new MoveRigidbody(playerModel.Speed,playerRB);
+            RotationShip rotationRigidbody = new RotationShip(playerTransform);        
+            FireShip fireShip = new FireShip(_bulletRB, _playerTransform, _force);
+            TakeDamageShip takeDamageShip = new TakeDamageShip(playerModel.Health);         
+            _ship = new Ship(moveRigidbody, rotationRigidbody,fireShip,takeDamageShip);
+            
         }
 
         public void Update()
-        {
+        {           
             _inputHorizontal = Input.GetAxis(InputConstants.HORIZONTAL);
             _inputVertical = Input.GetAxis(InputConstants.VERTICAL);
             _fire1 = Input.GetButton(InputConstants.FIRE1);
-
+            
             _isAddAcceleration = Input.GetKeyDown(KeyCode.LeftShift);
             _isRemoveAcceleration = Input.GetKeyUp(KeyCode.LeftShift);
 
