@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Asteroids
 {
-    internal sealed class Ship : Player,IMove,IRotation,IFire,ITakeDamage
+    internal sealed class Ship : IMove,IRotation,IFire,ITakeDamage
     {
         private IMove _moveImplimintation;
         private IRotation _rotationImplimintation;
@@ -49,9 +49,9 @@ namespace Asteroids
             _fireImplimintation.Fire(isFire);
         }
 
-        public void TakeDamage(GameObject barrel)
+        public void TakeDamage(GameObject obj)
         {
-            _takeDamageImplimintation.TakeDamage(barrel);
+            _takeDamageImplimintation.TakeDamage(obj);
         }
     }
 }

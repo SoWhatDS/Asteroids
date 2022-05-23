@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e15217152e8cbcf418cc70b263e84814, type: 3}
   m_Name: BulletData
   m_EditorClassIdentifier: 
-  _spriteBullet: {fileID: -6175632395701675189, guid: 6f4654b832bc88a47a83982398f12eca, type: 3}
+  _spriteBullet: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   _bulletRB: {fileID: 6965003243689974672, guid: 877faa0e5f8539844ae841dbb9048afa, type: 3}
   _force: 1000

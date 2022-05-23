@@ -10,13 +10,19 @@ namespace Asteroids
 
         public float Speed;
 
+        public float Damage;
+
+        public Vector2 Position;
+
        
       
-        public PlayerModel(Sprite sprite, float health, float speed)
+        public PlayerModel(Sprite sprite, float health, float speed, float damage, Vector2 position)
         {
             Sprite = sprite;
             Health = health;
-            Speed = speed;         
+            Speed = speed;
+            Damage = damage;
+            Position = position;
             
         }     
     }

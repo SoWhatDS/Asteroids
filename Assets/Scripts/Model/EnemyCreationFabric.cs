@@ -2,26 +2,25 @@ using UnityEngine;
 
 namespace Asteroids
 {
-    internal class EnemyCreationFabric : IEnemyFactory
+    internal sealed class EnemyCreationFabric : IEnemyFactory
     {
         private EnemyModel _enemyModel;
-     
 
         public EnemyCreationFabric (EnemyModel enemyModel)
-        {
-            _enemyModel = enemyModel;           
+        {    
+            _enemyModel = enemyModel;                      
         }        
       
         public Enemy CreateEnemy()
         {
-            Asteroid enemy = GameObject.Instantiate(Resources.Load<Asteroid>("Enemy/Enemy"));
+            Enemy enemy = GameObject.Instantiate(Resources.Load<Enemy>("Enemy/Enemy"));
             enemy.Speed = _enemyModel.SpeedEnemy;
             enemy.Health = _enemyModel.HealthEnemy;
             enemy.Damage = _enemyModel.Damage;
-            enemy.EnemyPosition = _enemyModel.Position;
-            enemy.GetComponent<SpriteRenderer>().sprite = _enemyModel.SpriteEnemy;
+            enemy.Position = _enemyModel.Position;          
+            enemy.gameObject.GetComponent<SpriteRenderer>().sprite = _enemyModel.SpriteEnemy;
             enemy.gameObject.AddComponent<BoxCollider2D>().isTrigger = true;
-            enemy.gameObject.AddComponent<Rigidbody2D>().gravityScale = 0.0f;
+            enemy.gameObject.AddComponent<Rigidbody2D>().gravityScale = 0.0f;            
             return enemy;
 
         }
@@ -29,7 +28,7 @@ namespace Asteroids
         public Enemy CreateEnemySpawn(Vector2 spawnPosition)
         {
             var enemy = CreateEnemy();           
-            enemy.gameObject.transform.position = spawnPosition;
+            enemy.Position.position = spawnPosition;
             return enemy;
 
         }
@@ -39,7 +38,7 @@ namespace Asteroids
             var enemy = CreateEnemy();
             enemy.Health = health;
             enemy.Damage = damage;
-            enemy.gameObject.transform.position = enemyPosition;
+            enemy.Position.position = enemyPosition;
             return enemy;
         }
 
@@ -54,7 +53,7 @@ namespace Asteroids
         {
             var enemy = CreateEnemy();
             enemy.Speed = speed;
-            enemy.gameObject.transform.position = bossPosition;
+            enemy.Position.position = bossPosition;
             enemy.Damage = damage;
             enemy.Health = health;
             return enemy;

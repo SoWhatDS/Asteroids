@@ -9,15 +9,17 @@ namespace Asteroids
         public float HealthEnemy;
         public float SpeedEnemy;
         public float Damage;
-        public Vector2 Position;
+        public Transform Position;
+        public GameObject EnemyPrefub;
 
-        public EnemyModel(Sprite spriteEnemy,float healthEnemy,float speedEnemy,float damage, Vector2 position)
+        public EnemyModel(Sprite spriteEnemy,float healthEnemy,float speedEnemy,float damage, Transform position,GameObject _prefub)
         {
             SpriteEnemy = spriteEnemy;
             HealthEnemy = healthEnemy;
             SpeedEnemy = speedEnemy;
             Damage = damage;
             Position = position;
+            EnemyPrefub = _prefub;           
         }
 
       

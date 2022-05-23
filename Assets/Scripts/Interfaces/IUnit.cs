@@ -6,7 +6,7 @@ namespace Asteroids
     {
         float Speed { get; }
         float Health { get; }
-        Vector2 EnemyPosition { get; }
+        Transform Position { get; }
         float Damage { get; }
 
     }

@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: 
   _sprite: {fileID: 3053137799357148699, guid: f32d96da99383db498b3d92d10c5259e, type: 3}
-  _health: 100
+  _health: 3000
   _speed: 10
+  _damage: 5
+  _position: {x: 0, y: 0}

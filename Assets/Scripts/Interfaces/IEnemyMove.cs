@@ -6,6 +6,6 @@ namespace Asteroids
 {
     interface IEnemyMove 
     {
-        void Move(Transform enemyPosition,Transform targetPosition,float speed);
+        void Move(Transform targetPosition);
     }
 }

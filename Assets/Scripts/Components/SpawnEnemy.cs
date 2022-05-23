@@ -1,4 +1,3 @@
-
 using UnityEngine;
 
 namespace Asteroids
@@ -7,12 +6,11 @@ namespace Asteroids
     {
         private float _RandX;
         private float _RandY;
-        private Vector2 _whereToSpawn;
+        private Vector3 _whereToSpawn;
         private float spawnRate = 2.0f;
         private float nextSpawn = 0.0f;
         private EnemyCreationFabric _enemyCreationFabric;
-        private Prototype _prototype;
-        private float _enemyCount;
+        private ICopyble _copy;
    
 
         public SpawnEnemy(EnemyCreationFabric enemyFabric)
@@ -21,24 +19,18 @@ namespace Asteroids
            
         }        
 
-        public void EnemySpawn()
-        {
-             
+        public Enemy EnemySpawn(Enemy prototype)
+        {                       
             if (Time.time > nextSpawn)
-            {     
+            {               
                 nextSpawn = Time.time + spawnRate;
                 _RandX = Random.Range(-10,10);
                 _RandY = 6;
                 _whereToSpawn = new Vector2(_RandX, _RandY);
-                _enemyCreationFabric.CreateEnemySpawn(_whereToSpawn);
-                _enemyCount++;
-                if (_enemyCount > 5)
-                {
-                    _prototype.Clone();
-                }
-                
-                
-            }         
+                _copy = prototype.copy(_whereToSpawn);
+                return (Enemy)_copy;
+            }
+            return null;
         }
     }
 }

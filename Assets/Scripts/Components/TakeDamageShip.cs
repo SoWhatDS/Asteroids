@@ -5,22 +5,26 @@ namespace Asteroids
 {
     internal sealed class TakeDamageShip : ITakeDamage
     {
-        private float _hp;
+        private float _playerHp;
+        private float _damageEnemy;
 
-        public TakeDamageShip(float hp)
+        public TakeDamageShip(float playerHp, float damageEnemy)
         {
-            _hp = hp;
+            _playerHp = playerHp;
+            _damageEnemy = damageEnemy;            
         }
 
-        public void TakeDamage(GameObject barrel)
+        public void TakeDamage(GameObject enemy)
         {
-            if (_hp <= 0)
+            if (_playerHp <= 0)
             {
-                GameObject.Destroy(barrel);
+                Debug.Log("GameOver");
+                GameObject.Destroy(enemy);
             }
             else
             {
-                _hp--;
+                _playerHp -= _damageEnemy;
+                GameObject.Destroy(enemy);
             }
         }
     }

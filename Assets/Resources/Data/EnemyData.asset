@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: EnemyData
   m_EditorClassIdentifier: 
   _spriteEnemy: {fileID: -492111648660132467, guid: f32d96da99383db498b3d92d10c5259e, type: 3}
-  _healthEnemy: 100
-  _speedEnemy: 10
+  _healthEnemy: 1500
+  _speedEnemy: 1
   _damage: 5
-  _position: {x: 0, y: 0}
+  _position: {fileID: 7885378931387794247, guid: 2d450a9b4419b0b4a99b82b5051d0bf3, type: 3}
+  _prefub: {fileID: 3666203431864788541, guid: 2d450a9b4419b0b4a99b82b5051d0bf3, type: 3}

@@ -21,7 +21,7 @@ namespace Asteroids
                 .Transform()
                 .Visual
                 .Sprite(_bulletModel.Sprite)
-                .Name("Bullet");
+                .Name("Bullet");           
             return bullet;
         }
     }

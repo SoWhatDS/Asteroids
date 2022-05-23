@@ -1,10 +1,9 @@
-
 using UnityEngine;
 
 namespace Asteroids
 {
     interface ITakeDamage 
     {
-        void TakeDamage(GameObject barrel);
+        void TakeDamage(GameObject obj);
     }
 }
