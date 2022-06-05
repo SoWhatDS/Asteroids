@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using ChainOfResponsibility.second;
 
 
 namespace Asteroids
@@ -8,7 +9,9 @@ namespace Asteroids
     {
         private float _inputHorizontal;
         private float _inputVertical;
+        private bool _addDamage;
         private bool _fire1;
+        private bool _addHealth;
         private Vector3 _direction;
         private bool _isAddAcceleration;
         private bool _isRemoveAcceleration;
@@ -21,8 +24,13 @@ namespace Asteroids
         private readonly GameObject _bullet;
         private bool _isUnlock = true;
         private readonly WeaponProxy _weaponProxy;
-        
-      
+        private readonly PlayerModifier _playerModifier;
+        private readonly AddDamageModifier _addDamagePlayer;
+        private readonly AddHealthModifier _addHealthPlayer;
+        private readonly int _maxHpPlayer = 5000;
+        private readonly int _addDamageNumber = 100;
+
+
 
         public PlayerController(PlayerCreation player,BulletModel bulletModel,EnemyModel enemyModel)
         {
@@ -34,7 +42,10 @@ namespace Asteroids
             _bullet.gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
             _bullet.gameObject.GetComponent<Rigidbody2D>().mass = 1f;
             _bullet.gameObject.tag = "Bullet";
-            _force = bulletModel.Force;                   
+            _force = bulletModel.Force;
+            _playerModifier = new PlayerModifier(_player);
+            _addDamagePlayer = new AddDamageModifier(_player,_addDamageNumber);
+            _addHealthPlayer = new AddHealthModifier(_player,_maxHpPlayer);
             MoveRigidbody moveRigidbody = new MoveRigidbody(_player.Speed,_playerRB);
             RotationShip rotationRigidbody = new RotationShip(_playerTransform);
             FireShip fireShip = new FireShip(_bullet, _playerTransform, _force);
@@ -50,6 +61,8 @@ namespace Asteroids
             _inputHorizontal = Input.GetAxis(InputConstants.HORIZONTAL);
             _inputVertical = Input.GetAxis(InputConstants.VERTICAL);
             _fire1 = Input.GetButton(InputConstants.FIRE1);
+            _addDamage = Input.GetButton(InputConstants.AddDamage);
+            _addHealth = Input.GetButton(InputConstants.AddHealth);
             
             _isAddAcceleration = Input.GetKeyDown(KeyCode.LeftShift);
             _isRemoveAcceleration = Input.GetKeyUp(KeyCode.LeftShift);
@@ -69,7 +82,19 @@ namespace Asteroids
             if (_isRemoveAcceleration)
             {
                 _ship.RemoveAcceleration();
-            }        
+            }
+            if (_addDamage)
+            {
+                _playerModifier.Add(_addDamagePlayer);
+                _playerModifier.Handle();
+                Debug.Log(_player.Damage);
+            }
+            if (_addHealth)
+            {
+                _playerModifier.Add(_addHealthPlayer);
+                _playerModifier.Handle();
+                Debug.Log(_player.Health);
+            }
         }                      
     }
 }

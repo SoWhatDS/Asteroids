@@ -24,9 +24,9 @@ namespace Asteroids
         {            
             if (enemyCount < 10)
             {
-                _enemy.Move(_targetPlayer.transform, _enemy.Speed);
+               
                 Enemy _newEnemy = _enemySpawn.EnemySpawn(_enemy);
-                _newEnemy.Move(_targetPlayer.transform, _newEnemy.Speed);               
+                //_newEnemy.Move(_targetPlayer.transform, _newEnemy.Speed);               
                 enemyCount++;
             }
         }
