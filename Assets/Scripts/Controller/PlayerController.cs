@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using ChainOfResponsibility.second;
+using Asteroids.State;
 
 
 namespace Asteroids
@@ -54,10 +55,13 @@ namespace Asteroids
             TakeDamageShip takeDamageShip = new TakeDamageShip(_player.Health,enemyModel.Damage);         
             _ship = new Ship(moveRigidbody, rotationRigidbody,_weaponProxy,takeDamageShip);
             _player.onTriggerEnterActionPlayer += takeDamageShip.TakeDamage;
+
+
         }
 
         public void Update()
-        {           
+        {
+           
             _inputHorizontal = Input.GetAxis(InputConstants.HORIZONTAL);
             _inputVertical = Input.GetAxis(InputConstants.VERTICAL);
             _fire1 = Input.GetButton(InputConstants.FIRE1);
@@ -70,9 +74,10 @@ namespace Asteroids
             _direction = Input.mousePosition - _mainCamera.WorldToScreenPoint(_playerTransform.position);
 
             _ship.Move(_inputHorizontal, _inputVertical,Time.deltaTime,_playerRB);
-            _ship.Rotation(_direction); 
-            
-            
+            _ship.Rotation(_direction);
+
+            _player.Request();
+
             _weaponProxy.Fire(_fire1);
 
             if (_isAddAcceleration)

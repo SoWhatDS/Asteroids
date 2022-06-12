@@ -15,6 +15,8 @@ namespace Asteroids
 
         public Action<GameObject> onTriggerEnterActionPlayer {get; set;}
 
+        public State.State _state;
+
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.GetComponent<Enemy>() == true)
@@ -25,7 +27,24 @@ namespace Asteroids
             }
         }
 
+        public Player(State.State state)
+        {
+            State = state;
+        }
 
+        public State.State State
+        {
+            set
+            {
+                _state = value;
+                Debug.Log("State: " + _state.GetType().Name);
+            }
+        }
+
+        public void Request()
+        {
+            _state.Handle(this);
+        }
 
     }
 }

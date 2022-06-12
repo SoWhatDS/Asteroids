@@ -1,10 +1,14 @@
 using UnityEngine;
 using System;
+using Asteroids.Visitors;
+using Asteroids.Observer.Example2;
 
 namespace Asteroids
 {
-    internal  sealed class Enemy : MonoBehaviour, IUnit, ICopyble
+    internal  sealed class Enemy : Hit, IUnit, ICopyble,IDeath
     {
+        private float _hp;
+
         public float Speed { get; set; }
 
         public float Health { get; set; }
@@ -16,6 +20,17 @@ namespace Asteroids
         public GameObject Prefub { get; set; }
 
         public Action<GameObject> OnTriggerAction { get; set; }
+        
+        public TextMesh textMesh { get; set; }
+
+        public string Name { get; set; }
+
+        public event Action<string> OnDeathChange;
+    
+        public override void Activate(IDealingDamage value, InfoCollision infoCollision)
+        {
+            value.Visit(this, infoCollision);
+        }
 
         public ICopyble copy(Vector2 position)
         {
@@ -31,11 +46,9 @@ namespace Asteroids
         {
             if (collision.gameObject.tag == "Bullet")
             {                           
-                OnTriggerAction?.Invoke(transform.gameObject);             
+                OnTriggerAction?.Invoke(transform.gameObject);              
             }
+          
         }
-
-
-
     }
 }

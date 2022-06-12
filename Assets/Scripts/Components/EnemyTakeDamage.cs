@@ -1,4 +1,5 @@
 using UnityEngine;
+using Asteroids.Visitors;
 
 
 namespace Asteroids
@@ -28,6 +29,8 @@ namespace Asteroids
             {
                 Debug.Log(enemy.GetComponent<Enemy>().Health);
                 enemy.GetComponent<Enemy>().Health -= _playerDamage;
+                _enemy.Activate(new ConsoleDisplay(), new InfoCollision(_playerDamage));
+                _enemy.Activate(new ApplyDamage(), new InfoCollision(_playerDamage));
 
             }
         }

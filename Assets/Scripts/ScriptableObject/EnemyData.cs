@@ -1,5 +1,5 @@
-
 using UnityEngine;
+
 
 namespace Asteroids
 {
@@ -13,7 +13,8 @@ namespace Asteroids
         [SerializeField] private float _damage;
         [SerializeField] private Transform _position;
         [SerializeField] private GameObject _prefub;
-      
+       
+    
                
         public Sprite SpriteEnemy => _spriteEnemy;
         public float HealthEnemy => _healthEnemy;
@@ -21,8 +22,6 @@ namespace Asteroids
         public float Damage => _damage;
         public Transform Position => _position;
         public GameObject Prefub => _prefub;
-      
-       
-
+                  
     }
 }

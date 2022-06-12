@@ -18,8 +18,7 @@ namespace Asteroids
             }
 
             if (viewPool.Pop().TryGetComponent(out T component))
-            {
-                Debug.Log(_viewCache.Count);
+            {               
                 return component;
             }
 

@@ -1,4 +1,5 @@
 using UnityEngine;
+using Asteroids.Visitors;
 
 namespace Asteroids
 {
@@ -17,16 +18,16 @@ namespace Asteroids
             _targetPlayer = GameObject.FindObjectOfType<Player>().transform;
             _enemySpawn = new SpawnEnemy(_enemyFabric);
             EnemyTakeDamage enemyTakeDamage = new EnemyTakeDamage(_enemy,GameObject.FindObjectOfType<Player>().Damage);                   
-            _enemy.OnTriggerAction += enemyTakeDamage.TakeDamage;                                  
+            _enemy.OnTriggerAction += enemyTakeDamage.TakeDamage; 
+            
+            
         }    
 
         public void Update()
         {            
             if (enemyCount < 10)
-            {
-               
-                Enemy _newEnemy = _enemySpawn.EnemySpawn(_enemy);
-                //_newEnemy.Move(_targetPlayer.transform, _newEnemy.Speed);               
+            {              
+                Enemy _newEnemy = _enemySpawn.EnemySpawn(_enemy);                          
                 enemyCount++;
             }
         }

@@ -24,13 +24,11 @@ namespace Asteroids
             if (_stack.Count == 0)
             {
                 go = GameObject.Instantiate(_prefab);
-                go.name = _prefab.name;                
-                Debug.Log("POP = 0");
+                go.name = _prefab.name;                                
             }
             else 
             {
-                go = _stack.Pop();
-                Debug.Log("POP not empty");
+                go = _stack.Pop();                
             }
             go.SetActive(true);
             go.transform.SetParent(null);
