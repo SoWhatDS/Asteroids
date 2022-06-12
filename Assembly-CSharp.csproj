@@ -62,6 +62,7 @@
     <Compile Include="Assets\Scripts\Patterns\Behaviour patterns\Chain\Second\PlayerModifier.cs" />
     <Compile Include="Assets\Scripts\Patterns\Other patterns\TemplateMethod\TemplateMethodTest.cs" />
     <Compile Include="Assets\Scripts\Components\InputConstants.cs" />
+    <Compile Include="Assets\Scripts\Patterns\Other patterns\Visitor\BulletProjector.cs" />
     <Compile Include="Assets\Scripts\Patterns\StructuralPatterns\Proxy\UnLockWeapon.cs" />
     <Compile Include="Assets\Scripts\Patterns\StructuralPatterns\Decorator\ExampleDecorator.cs" />
     <Compile Include="Assets\Scripts\Patterns\Other patterns\Visitor\HitImpl.cs" />
@@ -222,7 +223,21 @@
     <Compile Include="Assets\Scripts\Patterns\Behaviour patterns\Interpretator\Example.cs" />
     <Compile Include="Assets\Scripts\Patterns\Other patterns\Visitor\ConsoleDisplay.cs" />
     <Compile Include="Assets\Scripts\Patterns\Other patterns\Strategy\BaseBehaviour.cs" />
-    <Compile Include="Assets\Scripts\Patterns\Other patterns\Visitor\BulletProjector.cs" />
+    <Compile Include="Assets\Scripts\Patterns\Repository\IData.cs" />
+    <Compile Include="Assets\Scripts\Patterns\Repository\JSONData.cs" />
+    <Compile Include="Assets\Scripts\Patterns\Repository\PlayerPrefsData.cs" />
+    <Compile Include="Assets\Scripts\Patterns\Repository\SavedData.cs" />
+    <Compile Include="Assets\Scripts\Patterns\Repository\SavedDataRepository.cs" />
+    <Compile Include="Assets\Scripts\Patterns\Other patterns\TryParse\Example.cs" />
+    <Compile Include="Assets\Scripts\Patterns\Other patterns\SwitchPattern\Move.cs" />
+    <Compile Include="Assets\Scripts\Patterns\Other patterns\SwitchPattern\SwitchPattern.cs" />
+    <Compile Include="Assets\Scripts\Patterns\Other patterns\MVVM\Model\HpModel.cs" />
+    <Compile Include="Assets\Scripts\Patterns\Other patterns\MVVM\Model\IHpModel.cs" />
+    <Compile Include="Assets\Scripts\Patterns\Other patterns\MVVM\View\ApplyDamageView.cs" />
+    <Compile Include="Assets\Scripts\Patterns\Other patterns\MVVM\View\HpView.cs" />
+    <Compile Include="Assets\Scripts\Patterns\Other patterns\MVVM\ViewModel\IHpViewModel.cs" />
+    <Compile Include="Assets\Scripts\Patterns\Other patterns\MVVM\ViewModel\HpViewModel.cs" />
+    <Compile Include="Assets\Scripts\Patterns\Other patterns\MVVM\Starter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\DKP_PixelArt\PixelArtStarshipPackage_TerranFleet\PixelArtStarshipPackage_TerranFleet_Info.txt" />
